@@ -15,14 +15,11 @@ public class BackToMainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (levelCompleteCheck.LevelDone == true && Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
+      
     }
 
     public void OnBackToMenuClick()
     {
-
+        SceneManager.LoadScene(sceneBuildIndex: 0);
     }
 }

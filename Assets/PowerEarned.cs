@@ -9,7 +9,7 @@ public class PowerEarned : MonoBehaviour
      public float powerEarned;
     public float PowerEarnedDefault;
     public Text Powerearned;
-    bool powerAlreadyEarned;
+   public bool powerAlreadyEarned;
     public EndLevelStats endLevelStats;
     public float OverAllPower;
     public Text overAllPower;

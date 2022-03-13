@@ -38,6 +38,13 @@ public class LevelCompleteCheck : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
+
+        if (LevelDone)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
+        }
         if (Isdone == false) {
        Blueballs();
 
