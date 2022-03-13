@@ -43,7 +43,7 @@ public class ColorCheck : MonoBehaviour
          StartCoroutine(Hitcheck());
 
      }
-            else if (col.gameObject.tag == "Blue Ball" || col.gameObject.tag == "Red Ball" || col.gameObject.tag == "Green Ball" && colorCheckGreen.IsLoading == false)
+            else if (col.gameObject.tag == "Yellow Ball" || col.gameObject.tag == "Red Ball" || col.gameObject.tag == "Green Ball" && colorCheckGreen.IsLoading == false)
      {
       
                 if (ResetRestart.activeInHierarchy)
