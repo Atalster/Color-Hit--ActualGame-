@@ -27,6 +27,7 @@ public class EndLevelStats : MonoBehaviour
      double EndTimeElse;
     float bestTime;
      string currentState;
+     public PowerEarned powerEarned;
    
    
     
@@ -37,7 +38,7 @@ public class EndLevelStats : MonoBehaviour
     void Start()
     {
       
-        bestTime = PlayerPrefs.GetFloat("bestTime", 0.1f);
+       
         
     }
     void ChangeAnimationState(string newState)
@@ -92,9 +93,17 @@ public class EndLevelStats : MonoBehaviour
             }
             
             time.text = "TIME: " + EndTime.ToString("00.00") + "/s";
-
+        
 
                 //Best Time Calculations
+                if (powerEarned.OverAllPower == 0)
+                {
+                  PlayerPrefs.SetFloat("bestTime", (float)EndTime);
+                  
+                }
+
+
+
           if (EndTime < PlayerPrefs.GetFloat("bestTime"))
           {
             PlayerPrefs.SetFloat("bestTime", (float)EndTime);
