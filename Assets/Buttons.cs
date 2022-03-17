@@ -16,6 +16,7 @@ public class Buttons : MonoBehaviour
     public Animator LevelsPanels;
     public GameObject MainMenuCheck;
     public GameObject playCheck;
+    public GameObject ThemeCheck;
     public GameObject Settingcheck;
     public GameObject howtoplaycheck;
     public Animator Howtoplayanimator;
@@ -30,10 +31,12 @@ public class Buttons : MonoBehaviour
     public GameObject Equip;
     public GameObject Equip2;
     public GameObject Equip3;
+      public GameObject Equip4;
      
     public GameObject Buy;
     public GameObject Buy2;
     public GameObject Buy3;
+    public GameObject Buy4;
 
     public MouseLook mouseLook;
     public static float NewSens;
@@ -45,7 +48,7 @@ public class Buttons : MonoBehaviour
    
     
 
-    float[] costs = {250, 300, 450, 450};
+    float[] costs = {250, 300, 450, 500};
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +67,8 @@ public class Buttons : MonoBehaviour
         Buy.SetActive(true);
         Equip3.SetActive(false);
         Buy3.SetActive(true);
+        Equip4.SetActive(false);
+        Buy4.SetActive(true);
         PlayerPrefs.GetString("SettingsArrows");
     }
 
@@ -103,16 +108,22 @@ public class Buttons : MonoBehaviour
         {
             PlayerPrefs.SetFloat("OverallPower", 0);
         }
-        if(ThemesCheck.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+        if(ThemeCheck.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {
             Themes.SetActive(false);
             ThemesCheck.SetActive(false);
+            MainMenuCheck.SetActive(true);
         }
 
           //Reset HardMOde Equipped
           if(Input.GetKeyDown(KeyCode.H))
           {
             PlayerPrefs.SetString("HardModeEquip", "NotEquipped");
+          }
+
+            if(Input.GetKeyDown(KeyCode.H))
+          {
+            PlayerPrefs.SetString("SunsetEquip", "NotEquipped");
           }
 
         //Check if Themes are bought
@@ -136,6 +147,12 @@ public class Buttons : MonoBehaviour
         Buy3.SetActive(false);
         }
 
+         if (PlayerPrefs.GetString("Dawn") == "Bought")
+        {
+          Equip4.SetActive(true);
+        Buy4.SetActive(false);
+        }
+
 
         //Check iF Themes are eqipped
         if (PlayerPrefs.GetString("BroColorsEquip") == "Equipped")
@@ -153,6 +170,11 @@ public class Buttons : MonoBehaviour
         else if (PlayerPrefs.GetString("SunsetEquip") == "Equipped")
         {
           Equip3.GetComponentInChildren<Text>().text = "Unequip";
+        }
+
+          else if (PlayerPrefs.GetString("DawnEquip") == "Equipped")
+        {
+          Equip4.GetComponentInChildren<Text>().text = "Unequip";
         }
 
 
@@ -193,6 +215,7 @@ public class Buttons : MonoBehaviour
     {
             Themes.SetActive(true);
             ThemesCheck.SetActive(true);
+            MainMenuCheck.SetActive(false);
     }
     void PanelsClose()
     {
@@ -331,7 +354,19 @@ public class Buttons : MonoBehaviour
     
      public void Buy4Click()
     {
-    PlayerPrefs.SetString("Bought4", "Equipped");
+     float Remaining = PlayerPrefs.GetFloat("OverallPower") - costs[3];
+
+        if (PlayerPrefs.GetFloat("OverallPower") >= costs[3])
+      {
+        PlayerPrefs.SetString("Dawn", "Bought");
+        Buyinsufficent.text = "Bought!";
+        InsufficentPower.Play("Fadeinout");
+        PlayerPrefs.SetFloat("OverallPower", Remaining);
+        Equip4.SetActive(true);
+        Buy4.SetActive(false);
+      }
+        else
+        InsufficentPower.Play("Fadeinout");
     }
 
     public void Equip1Click()
@@ -351,7 +386,7 @@ public class Buttons : MonoBehaviour
             PlayerPrefs.SetString("BroColorsEquip", "NotEquipped");
            return;
         }
-      else {
+      else if (PlayerPrefs.GetString("BroColorsEquip") != "Equipped") {
          Equip.GetComponentInChildren<Text>().text = "Equipped";
         PlayerPrefs.SetString("BroColorsEquip", "Equipped");
 
@@ -378,7 +413,7 @@ public class Buttons : MonoBehaviour
             PlayerPrefs.SetString("HardModeEquip", "NotEquipped");
            return;
         }
-        else {
+        else if (PlayerPrefs.GetString("HardModeEquip") != "Equipped"){
 
               Equip2.GetComponentInChildren<Text>().text = "Unequip";
         PlayerPrefs.SetString("HardModeEquip", "Equipped");
@@ -398,6 +433,7 @@ public class Buttons : MonoBehaviour
         InsufficentPower.Play("Fadeinout");
         return;
         }
+
         else{
 
                //Unequip Themes
@@ -407,7 +443,7 @@ public class Buttons : MonoBehaviour
             PlayerPrefs.SetString("SunsetEquip", "NotEquipped");
            return;
         }
-      else {
+      else if (PlayerPrefs.GetString("SunsetEquip") != "Equipped"){
          Equip3.GetComponentInChildren<Text>().text = "Unequip";
         PlayerPrefs.SetString("SunsetEquip", "Equipped");
 
@@ -419,7 +455,28 @@ public class Buttons : MonoBehaviour
       public void Equip4Click()
     {
       
+           if (PlayerPrefs.GetString("HardModeEquip") == "Equipped" || PlayerPrefs.GetString("BroColorsEquip") == "Equipped" || PlayerPrefs.GetString("SunsetEquip") == "Equipped" )
+        {
+          Buyinsufficent.text = "Unequip First!";
+        InsufficentPower.Play("Fadeinout");
+        return;
+        }
+        else{
+
+               //Unequip Themes
+         if (PlayerPrefs.GetString("DawnEquip") == "Equipped" )
+        {
+            Equip4.GetComponentInChildren<Text>().text = "Equip";
+            PlayerPrefs.SetString("DawnEquip", "NotEquipped");
+           return;
+        }
+      else if (PlayerPrefs.GetString("DawnEquip") != "Equipped") {
+         Equip4.GetComponentInChildren<Text>().text = "Unequip";
         PlayerPrefs.SetString("DawnEquip", "Equipped");
+
+      }
+       
+        }
 
       
     }

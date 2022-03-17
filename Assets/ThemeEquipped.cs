@@ -392,7 +392,125 @@ public class ThemeEquipped : MonoBehaviour
                 }
 
 
+            else if (PlayerPrefs.GetString("DawnEquip") == "Equipped")
+            {
 
+                                    //Blue Colors rearragements
+            for (int i = 0; i < BlueBalls.transform.childCount; i++)
+            {
+                Color c = new Color32(191, 96, 30, 255);
+                float Intensity = 3.5f;
+                 Material BlueballsMat = BlueBalls.transform.GetChild(i).GetComponent<Renderer>().material;
+                 BlueballsMat.EnableKeyword("_EMISSION");
+         BlueballsMat.SetColor("_EmissionColor", c * Intensity );
+            
+            }
+
+             for (int z = 0; z < BlueCorner.transform.childCount; z++)
+            {
+                 Color c = new Color32(191, 96, 30, 255);
+                float Intensity = 2f;
+                 Material BlueCornerMat = BlueCorner.transform.GetChild(z).GetComponent<Renderer>().material;
+                 BlueCornerMat.EnableKeyword("_EMISSION");
+         BlueCornerMat.SetColor("_EmissionColor", c * Intensity);
+            
+            }
+
+              Color xx = new Color32(191, 96, 30, 255);
+            float IntensityFake = 3.5f;
+                 Material FakeBlueballMat = FakeBlueBall.transform.GetComponent<Renderer>().material;
+                 FakeBlueballMat.EnableKeyword("_EMISSION");
+         FakeBlueballMat.SetColor("_EmissionColor", xx * IntensityFake );
+
+
+                //Red Color Rearrangements
+              for (int x = 0; x < RedBalls.transform.childCount; x++)
+            {
+                Color b = new Color32(18, 182, 191, 255);
+                float Intensity = 3f;
+                 Material RedballsMat = RedBalls.transform.GetChild(x).GetComponent<Renderer>().material;
+                 RedballsMat.EnableKeyword("_EMISSION");
+         RedballsMat.SetColor("_EmissionColor", b * Intensity );
+            DynamicGI.UpdateEnvironment();
+            }
+
+             for (int c = 0; c < RedCorner.transform.childCount; c++)
+            {
+               Color b = new Color32(18, 182, 191, 255);
+                float Intensity = 1.5f;
+                 Material RedCornerMat = RedCorner.transform.GetChild(c).GetComponent<Renderer>().material;
+                 RedCornerMat.EnableKeyword("_EMISSION");
+         RedCornerMat.SetColor("_EmissionColor", b * Intensity);
+           
+            }
+
+             Color bb = new Color32(18, 182, 191, 255);
+            float IntensityFakeRed = 3f;
+                 Material FakeRedballMat = FakeRedBall.transform.GetComponent<Renderer>().material;
+                 FakeRedballMat.EnableKeyword("_EMISSION");
+         FakeRedballMat.SetColor("_EmissionColor", bb * IntensityFakeRed );
+
+
+           //Green Color Rearrangements
+            for (int x = 0; x < GreenBalls.transform.childCount; x++)
+            {
+                Color c = new Color32(98, 11, 191, 255);
+                float Intensity = 4.5f;
+                 Material GreenballsMat = GreenBalls.transform.GetChild(x).GetComponent<Renderer>().material;
+                 GreenballsMat.EnableKeyword("_EMISSION");
+         GreenballsMat.SetColor("_EmissionColor",  c * Intensity );
+            DynamicGI.UpdateEnvironment();
+            }
+
+             for (int i = 0; i < GreenCorner.transform.childCount; i++)
+            {
+                      Color c = new Color32(98, 11, 191, 255);
+                float Intensity = 2.5f;
+                 Material GreenCornerMat = GreenCorner.transform.GetChild(i).GetComponent<Renderer>().material;
+                 GreenCornerMat.EnableKeyword("_EMISSION");
+        GreenCornerMat.SetColor("_EmissionColor", c * Intensity);
+           
+            }
+
+              Color cc = new Color32(98, 11, 191, 255);
+            float IntensityFakeGreen = 4.5f;
+                 Material FakeGreenballMat = FakeGreenBall.transform.GetComponent<Renderer>().material;
+                 FakeGreenballMat.EnableKeyword("_EMISSION");
+         FakeGreenballMat.SetColor("_EmissionColor", cc * IntensityFakeGreen );
+            DynamicGI.UpdateEnvironment();
+
+
+                  //Yellow Color Rearrangements
+
+                for (int x = 0; x < YellowBalls.transform.childCount; x++)
+            {
+                Color c = new Color32(10, 191, 16, 255);
+                float Intensity = 3f;
+                 Material YellowballsMat = YellowBalls.transform.GetChild(x).GetComponent<Renderer>().material;
+                 YellowballsMat.EnableKeyword("_EMISSION");
+         YellowballsMat.SetColor("_EmissionColor",  c * Intensity );
+            DynamicGI.UpdateEnvironment();
+            }
+
+             for (int i = 0; i < YellowCorner.transform.childCount; i++)
+            {
+                Color c = new Color32(10, 191, 16, 255);
+                float Intensity = 1.5f;
+                 Material YellowCornerMat = YellowCorner.transform.GetChild(i).GetComponent<Renderer>().material;
+                 YellowCornerMat.EnableKeyword("_EMISSION");
+       YellowCornerMat.SetColor("_EmissionColor", c * Intensity);
+           
+            }
+
+         Color Yc = new Color32(10, 191, 16, 255);
+            float IntensityFakeYellow = 3f;
+                 Material FakeYellowballMat = FakeYellowBall.transform.GetComponent<Renderer>().material;
+                 FakeYellowballMat.EnableKeyword("_EMISSION");
+         FakeYellowballMat.SetColor("_EmissionColor", Yc * IntensityFakeYellow );
+            DynamicGI.UpdateEnvironment();
+
+
+            }
 
         else{
 
