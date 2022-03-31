@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PowerEarned : MonoBehaviour
 {
 
      public float powerEarned;
     public float PowerEarnedDefault;
+     public float PowerEarnedDefault2;
+     public float PowerEarnedDefault3;
     public Text Powerearned;
    public bool powerAlreadyEarned;
     public EndLevelStats endLevelStats;
@@ -19,6 +22,8 @@ public class PowerEarned : MonoBehaviour
     void Start()
     {
          PlayerPrefs.GetString("PowerAlreadyEarned");
+          PlayerPrefs.GetString("PowerAlreadyEarned2");
+           PlayerPrefs.GetString("PowerAlreadyEarned3");
          OverAllPower =  PlayerPrefs.GetFloat("OverallPower");
     }
 
@@ -28,12 +33,16 @@ public class PowerEarned : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Y))
         {
             PlayerPrefs.SetString("PowerAlreadyEarned", "false");
+            PlayerPrefs.SetString("PowerAlreadyEarned2", "false");
+             PlayerPrefs.SetString("PowerAlreadyEarned3", "false");
         }
+
+        
         if (levelCompleteCheck.LevelDone == true)
         {
-           
-
-                if (Isdone == false){
+           if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level1"))
+           {
+                          if (Isdone == false){
                 if(PlayerPrefs.GetString("PowerAlreadyEarned") == "true")
                 {
                     PlayerPrefs.SetFloat("powerEarned", PowerEarnedDefault);
@@ -50,8 +59,52 @@ public class PowerEarned : MonoBehaviour
                 PlayerPrefs.Save();
            }
                 }
+           }
 
-               
+     
+
+              else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level02"))
+           {
+                          if (Isdone == false){
+                if(PlayerPrefs.GetString("PowerAlreadyEarned2") == "true")
+                {
+                    PlayerPrefs.SetFloat("powerEarned2", PowerEarnedDefault2);
+                    Powerearned.text = "Power Earned: " + PlayerPrefs.GetFloat("powerEarned2").ToString();
+                    OverAllPower += PlayerPrefs.GetFloat("powerEarned2");
+        PlayerPrefs.SetFloat("OverallPower", OverAllPower);
+        overAllPower.text = "Overall Power: " + PlayerPrefs.GetFloat("OverallPower").ToString();
+                    Isdone = true;
+                }
+           else{
+               powerearned();
+                Isdone = true;
+                PlayerPrefs.SetString("PowerAlreadyEarned2", "true");
+                PlayerPrefs.Save();
+           }
+                }
+           }
+
+                  else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level03"))
+           {
+                          if (Isdone == false){
+                if(PlayerPrefs.GetString("PowerAlreadyEarned3") == "true")
+                {
+                    PlayerPrefs.SetFloat("powerEarned3", PowerEarnedDefault3);
+                    Powerearned.text = "Power Earned: " + PlayerPrefs.GetFloat("powerEarned3").ToString();
+                    OverAllPower += PlayerPrefs.GetFloat("powerEarned3");
+        PlayerPrefs.SetFloat("OverallPower", OverAllPower);
+        overAllPower.text = "Overall Power: " + PlayerPrefs.GetFloat("OverallPower").ToString();
+                    Isdone = true;
+                }
+           else{
+               powerearned();
+                Isdone = true;
+                PlayerPrefs.SetString("PowerAlreadyEarned3", "true");
+                PlayerPrefs.Save();
+           }
+                }
+           }
+
              
         }
     }
@@ -86,11 +139,37 @@ public class PowerEarned : MonoBehaviour
            powerEarned += 60;
         }
 
-        PlayerPrefs.SetFloat("powerEarned", powerEarned);
-        Powerearned.text = "Power Earned: " + PlayerPrefs.GetFloat("powerEarned").ToString();
-        OverAllPower += PlayerPrefs.GetFloat("powerEarned");
-        PlayerPrefs.SetFloat("OverallPower", OverAllPower);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level1"))
+        {
+ PlayerPrefs.SetFloat("powerEarned", powerEarned);
+ Powerearned.text = "Power Earned: " + PlayerPrefs.GetFloat("powerEarned").ToString();
+  OverAllPower += PlayerPrefs.GetFloat("powerEarned");
+  PlayerPrefs.SetFloat("OverallPower", OverAllPower);
         overAllPower.text = "Overall Power: " + PlayerPrefs.GetFloat("OverallPower").ToString();
+        }
+
+         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level02"))
+        {
+            PlayerPrefs.SetFloat("powerEarned2", powerEarned);
+ Powerearned.text = "Power Earned: " + PlayerPrefs.GetFloat("powerEarned2").ToString();
+  OverAllPower += PlayerPrefs.GetFloat("powerEarned2");
+  PlayerPrefs.SetFloat("OverallPower", OverAllPower);
+        overAllPower.text = "Overall Power: " + PlayerPrefs.GetFloat("OverallPower").ToString();
+        }
+
+         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level03"))
+        {
+            PlayerPrefs.SetFloat("powerEarned3", powerEarned);
+ Powerearned.text = "Power Earned: " + PlayerPrefs.GetFloat("powerEarned3").ToString();
+  OverAllPower += PlayerPrefs.GetFloat("powerEarned3");
+  PlayerPrefs.SetFloat("OverallPower", OverAllPower);
+        overAllPower.text = "Overall Power: " + PlayerPrefs.GetFloat("OverallPower").ToString();
+        }
+       
+        
+        
+       
+        
     }
 }
 

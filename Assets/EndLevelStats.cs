@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndLevelStats : MonoBehaviour
 {
     public Text time;
+    
     public Text BestTime;
     public Text Score;
     public float score;
     public Animator ScorePanelanimator;
     public Animator MiddlePanel;
+    public LevelSelect levelSelect;
     
     public Text PowerLost;
     public Text AvgTimeBetweenHits;
@@ -67,13 +70,14 @@ public class EndLevelStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+          
         int children = AvgTimeclones.transform.childCount;
         if (levelCompleteCheck.LevelDone == true)
         {
 
-         
-          //Calulating and displaying the time it took to finish level(EndTime)
+          if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level1"))
+          {
+             //Calulating and displaying the time it took to finish level(EndTime)
         double EndTime = timer.TimeStartedWith - timer.TimeLeft;
 
           if (EndTime <= 12)
@@ -115,6 +119,114 @@ public class EndLevelStats : MonoBehaviour
           }
      
           BestTime.text = "Best Time: " + PlayerPrefs.GetFloat("bestTime").ToString("00.00");
+          }
+
+         
+         
+
+
+  if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level02"))
+          {
+            
+             //Calulating and displaying the time it took to finish level(EndTime)
+        double EndTime = timer.TimeStartedWith - timer.TimeLeft;
+
+          if (EndTime <= 12)
+            {
+              time.GetComponent<Text>().color = Color.green;
+              
+            }
+
+              else if ( EndTime <= 20 && EndTime > 12)
+            {
+               time.GetComponent<Text>().color = Color.yellow;
+            }
+
+              else if (EndTime <= 30 && EndTime > 20)
+            {
+               time.GetComponent<Text>().color = Color.red;
+            }
+            
+            time.text = "TIME: " + EndTime.ToString("00.00") + "/s";
+        
+
+                //Best Time Calculations
+                if (PlayerPrefs.GetString("FirstBestTime2") != "true")
+                {
+                  PlayerPrefs.SetFloat("bestTime2", (float)EndTime);
+                  
+                }
+
+
+
+          if (EndTime < PlayerPrefs.GetFloat("bestTime2"))
+          {
+            PlayerPrefs.SetFloat("bestTime2", (float)EndTime);
+            
+          }
+          else 
+          {
+            PlayerPrefs.GetFloat("bestTime2");
+          }
+     
+          BestTime.text = "Best Time: " + PlayerPrefs.GetFloat("bestTime2").ToString("00.00");
+
+          LevelSelect.Clicks02 += 1f;
+          PlayerPrefs.SetString("FirstBestTime", "true");
+          }
+
+           if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level03"))
+          {
+            
+             //Calulating and displaying the time it took to finish level(EndTime)
+        double EndTime = timer.TimeStartedWith - timer.TimeLeft;
+
+          if (EndTime <= 29)
+            {
+              time.GetComponent<Text>().color = Color.green;
+              
+            }
+
+              else if ( EndTime <= 45 && EndTime > 29)
+            {
+               time.GetComponent<Text>().color = Color.yellow;
+            }
+
+              else if (EndTime <= 60 && EndTime > 45)
+            {
+               time.GetComponent<Text>().color = Color.red;
+            }
+            
+            time.text = "TIME: " + EndTime.ToString("00.00") + "/s";
+        
+
+                //Best Time Calculations
+                if (PlayerPrefs.GetString("FirstBestTime3") != "true")
+                {
+                  PlayerPrefs.SetFloat("bestTime3", (float)EndTime);
+                  
+                }
+
+
+
+          if (EndTime < PlayerPrefs.GetFloat("bestTime3"))
+          {
+            PlayerPrefs.SetFloat("bestTime3", (float)EndTime);
+            
+          }
+          else 
+          {
+            PlayerPrefs.GetFloat("bestTime3");
+          }
+     
+          BestTime.text = "Best Time: " + PlayerPrefs.GetFloat("bestTime3").ToString("00.00");
+
+          LevelSelect.Clicks02 += 1f;
+          PlayerPrefs.SetString("FirstBestTime3", "true");
+          }
+
+
+
                 //Calculating AvgTimeBetweenHits
 
               //Grab all avg time from child objects and add it to one variable

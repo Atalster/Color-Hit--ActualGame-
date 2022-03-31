@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     public Text timer;
-    public double TimeLeft = 20f;
-    public double TimeStartedWith = 20f;
+    public double TimeLeft;
+    public double TimeStartedWith;
     public GameObject ResetRestart;
     public LevelCompleteCheck levelCompleteCheck;
     bool Isdone;
@@ -29,6 +29,24 @@ public class Timer : MonoBehaviour
          LevelCompletedUI.SetActive(false);
           ScorePanel.SetActive(false);
         middlePanel.SetActive(false);
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level1"))
+        {
+            TimeLeft = 30f;
+            TimeStartedWith = 30f;
+        }
+
+          else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level02"))
+        {
+            TimeLeft = 45f;
+            TimeStartedWith = 45f;
+        }
+
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level03"))
+        {
+            TimeLeft = 60f;
+            TimeStartedWith = 60f;
+        }
     }
 void ChangeAnimationState(string newState)
 {
@@ -90,12 +108,13 @@ void ChangeAnimationState2(string newState)
     void Update()
     {
         if (Isdone == false) {
-        TimeLeft -= Time.deltaTime;
+        TimeLeft -= Time.unscaledDeltaTime;
 
         timer.text = TimeLeft.ToString("00.00");
 
         if (TimeLeft <= 0)
         {
+            Isdone = true;
             if (ResetRestart.activeInHierarchy)
             {
                 Scene scene = SceneManager.GetActiveScene();

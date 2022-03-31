@@ -80,7 +80,7 @@ public class ThemeEquipped : MonoBehaviour
 
              for (int c = 0; c < RedCorner.transform.childCount; c++)
             {
-                float Intensity = 1.3f;
+                float Intensity = 1.5f;
                  Material RedCornerMat = RedCorner.transform.GetChild(c).GetComponent<Renderer>().material;
                  RedCornerMat.EnableKeyword("_EMISSION");
          RedCornerMat.SetColor("_EmissionColor", Color.white * Intensity);
@@ -108,7 +108,7 @@ public class ThemeEquipped : MonoBehaviour
              for (int i = 0; i < GreenCorner.transform.childCount; i++)
             {
                 Color c = new Color32(241, 12, 142, 255);
-                float Intensity = 1.3f;
+                float Intensity = 1.5f;
                  Material GreenCornerMat = GreenCorner.transform.GetChild(i).GetComponent<Renderer>().material;
                  GreenCornerMat.EnableKeyword("_EMISSION");
         GreenCornerMat.SetColor("_EmissionColor", c * Intensity);
@@ -137,7 +137,7 @@ public class ThemeEquipped : MonoBehaviour
              for (int i = 0; i < YellowCorner.transform.childCount; i++)
             {
                  Color c = new Color32(191, 96, 30, 255);
-                float Intensity = 1.3f;
+                float Intensity = 1.5f;
                  Material YellowCornerMat = YellowCorner.transform.GetChild(i).GetComponent<Renderer>().material;
                  YellowCornerMat.EnableKeyword("_EMISSION");
        YellowCornerMat.SetColor("_EmissionColor", c * Intensity);
@@ -170,7 +170,7 @@ public class ThemeEquipped : MonoBehaviour
              for (int z = 0; z < BlueCorner.transform.childCount; z++)
             {
                  Color c = new Color32(153, 161, 191, 255);
-                float Intensity = 1.3f;
+                float Intensity = 1.5f;
                  Material BlueCornerMat = BlueCorner.transform.GetChild(z).GetComponent<Renderer>().material;
                  BlueCornerMat.EnableKeyword("_EMISSION");
          BlueCornerMat.SetColor("_EmissionColor", c * Intensity);
@@ -196,7 +196,7 @@ public class ThemeEquipped : MonoBehaviour
 
              for (int c = 0; c < RedCorner.transform.childCount; c++)
             {
-                float Intensity = 1.3f;
+                float Intensity = 1.5f;
                  Material RedCornerMat = RedCorner.transform.GetChild(c).GetComponent<Renderer>().material;
                  RedCornerMat.EnableKeyword("_EMISSION");
          RedCornerMat.SetColor("_EmissionColor", Color.white * Intensity);
@@ -224,7 +224,7 @@ public class ThemeEquipped : MonoBehaviour
              for (int i = 0; i < GreenCorner.transform.childCount; i++)
             {
                 Color c = new Color32(184, 191, 165, 255);
-                float Intensity = 1.3f;
+                float Intensity = 1.5f;
                  Material GreenCornerMat = GreenCorner.transform.GetChild(i).GetComponent<Renderer>().material;
                  GreenCornerMat.EnableKeyword("_EMISSION");
         GreenCornerMat.SetColor("_EmissionColor", c * Intensity);
@@ -253,7 +253,7 @@ public class ThemeEquipped : MonoBehaviour
              for (int i = 0; i < YellowCorner.transform.childCount; i++)
             {
                  Color c = new Color32(255, 238, 237, 255);
-                float Intensity = 0.9f;
+                float Intensity = 1.3f;
                  Material YellowCornerMat = YellowCorner.transform.GetChild(i).GetComponent<Renderer>().material;
                  YellowCornerMat.EnableKeyword("_EMISSION");
        YellowCornerMat.SetColor("_EmissionColor", c * Intensity);
@@ -286,7 +286,7 @@ public class ThemeEquipped : MonoBehaviour
              for (int i = 0; i < BlueCorner.transform.childCount; i++)
             {
                 Color c = new Color32(130, 75, 61, 255);
-                float Intensity = 1.8f;
+                float Intensity = 2f;
                  Material BlueCornerMat = BlueCorner.transform.GetChild(i).GetComponent<Renderer>().material;
                  BlueCornerMat.EnableKeyword("_EMISSION");
          BlueCornerMat.SetColor("_EmissionColor", c * Intensity );
@@ -391,7 +391,7 @@ public class ThemeEquipped : MonoBehaviour
 
                 }
 
-
+                    //DAWN COLORS
             else if (PlayerPrefs.GetString("DawnEquip") == "Equipped")
             {
 
@@ -437,7 +437,7 @@ public class ThemeEquipped : MonoBehaviour
              for (int c = 0; c < RedCorner.transform.childCount; c++)
             {
                Color b = new Color32(18, 182, 191, 255);
-                float Intensity = 1.5f;
+                float Intensity = 1.8f;
                  Material RedCornerMat = RedCorner.transform.GetChild(c).GetComponent<Renderer>().material;
                  RedCornerMat.EnableKeyword("_EMISSION");
          RedCornerMat.SetColor("_EmissionColor", b * Intensity);
@@ -465,7 +465,7 @@ public class ThemeEquipped : MonoBehaviour
              for (int i = 0; i < GreenCorner.transform.childCount; i++)
             {
                       Color c = new Color32(98, 11, 191, 255);
-                float Intensity = 2.5f;
+                float Intensity = 1.8f;
                  Material GreenCornerMat = GreenCorner.transform.GetChild(i).GetComponent<Renderer>().material;
                  GreenCornerMat.EnableKeyword("_EMISSION");
         GreenCornerMat.SetColor("_EmissionColor", c * Intensity);
@@ -495,7 +495,7 @@ public class ThemeEquipped : MonoBehaviour
              for (int i = 0; i < YellowCorner.transform.childCount; i++)
             {
                 Color c = new Color32(10, 191, 16, 255);
-                float Intensity = 1.5f;
+                float Intensity = 1.8f;
                  Material YellowCornerMat = YellowCorner.transform.GetChild(i).GetComponent<Renderer>().material;
                  YellowCornerMat.EnableKeyword("_EMISSION");
        YellowCornerMat.SetColor("_EmissionColor", c * Intensity);

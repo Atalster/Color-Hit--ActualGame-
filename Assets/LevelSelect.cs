@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelSelect : MonoBehaviour
 {
+    public static float Clicks02;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +21,18 @@ public class LevelSelect : MonoBehaviour
     {
         SceneManager.LoadScene("Level1");
 
+    }
+
+    public void OnLevel02Click()
+    {
+        SceneManager.LoadScene("Level02");
+        Clicks02 += 1f;
+        PlayerPrefs.SetFloat("Level02Clicks", Clicks02);
+    }
+
+     public void OnLevel03Click()
+    {
+        SceneManager.LoadScene("Level03");
+        
     }
 }
