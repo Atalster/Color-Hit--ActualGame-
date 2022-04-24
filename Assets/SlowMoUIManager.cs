@@ -14,7 +14,18 @@ public class SlowMoUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Checks if Script should be enabled or not
+
+        if (UnlockLevel.On == true)
+        {
+            this.enabled = true;
+            SliderCanvasGroup.enabled = true;
+        }
+        else if (UnlockLevel.On == false)
+        {
+            this.enabled = false;
+            SliderCanvasGroup.enabled = false;
+        }
     }
 
     void Update()

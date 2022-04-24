@@ -31,7 +31,7 @@ public class EndLevelStats : MonoBehaviour
     float bestTime;
      string currentState;
      public PowerEarned powerEarned;
-   
+   public int nextSceneLoad;
    
     
     
@@ -41,8 +41,8 @@ public class EndLevelStats : MonoBehaviour
     void Start()
     {
       
-       
-        
+       nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        PlayerPrefs.GetString("FinalLevel", "False");
     }
     void ChangeAnimationState(string newState)
 {
@@ -70,7 +70,13 @@ public class EndLevelStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          
+        //Turn Interactble Buttons off
+
+        
+
+
+
+
         int children = AvgTimeclones.transform.childCount;
         if (levelCompleteCheck.LevelDone == true)
         {
@@ -78,6 +84,11 @@ public class EndLevelStats : MonoBehaviour
           if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level1"))
           {
              //Calulating and displaying the time it took to finish level(EndTime)
+
+             if  (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+             {
+               PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+             }
         double EndTime = timer.TimeStartedWith - timer.TimeLeft;
 
           if (EndTime <= 12)
@@ -129,6 +140,10 @@ public class EndLevelStats : MonoBehaviour
           {
             
              //Calulating and displaying the time it took to finish level(EndTime)
+              if  (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+             {
+               PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+             }
         double EndTime = timer.TimeStartedWith - timer.TimeLeft;
 
           if (EndTime <= 12)
@@ -174,11 +189,16 @@ public class EndLevelStats : MonoBehaviour
           LevelSelect.Clicks02 += 1f;
           PlayerPrefs.SetString("FirstBestTime", "true");
           }
-
+            //LEVEL 3
            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level03"))
           {
             
              //Calulating and displaying the time it took to finish level(EndTime)
+             PlayerPrefs.SetString("FinalLevel", "True");  
+              if  (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+             {
+               PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+             }
         double EndTime = timer.TimeStartedWith - timer.TimeLeft;
 
           if (EndTime <= 29)

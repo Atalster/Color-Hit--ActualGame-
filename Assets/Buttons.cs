@@ -100,10 +100,7 @@ public class Buttons : MonoBehaviour
      
 
 
-        if (MainMenuCheck.activeInHierarchy == true && Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+      
         if (Input.GetKeyDown(KeyCode.R))
         {
             PlayerPrefs.SetFloat("OverallPower", 0);
@@ -483,5 +480,8 @@ public class Buttons : MonoBehaviour
 
     
 
-    
+      public void OnQuitClick()
+      {
+        Application.Quit();
+      }
 }

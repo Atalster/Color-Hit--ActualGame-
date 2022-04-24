@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5384878612042292353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2752940245736896421}
+  - component: {fileID: 5104148697099603325}
+  m_Layer: 0
+  m_Name: CheckSlowMo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2752940245736896421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384878612042292353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5104148697099603325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384878612042292353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e498132420219642969c61e03b9d57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 5009671054521509198, guid: 7b67e3a538efa6f43a0037091d7895e2, type: 3}
+  SlowMoTUT: {fileID: 6408098112459244179, guid: fd1962b36e1da244293db8c2fec132a3, type: 3}
+  SlowmoOutline: {fileID: 9154039229969114294, guid: 04f6069fbe5c74743b32cf1fa8235959, type: 3}
+  SlowmoBg: {fileID: 3168717331830324909, guid: 8d7ef29e877def74bbe1968bde16b550, type: 3}
+  SlowmoBar: {fileID: 3165735161691996796, guid: 15e0860c3da983f4b8c3df102bff7bb9, type: 3}
+  Slowmo_Outline: {fileID: 3654508096175446357, guid: a8b6dd0662f60ac40b60b8167e4123c2, type: 3}

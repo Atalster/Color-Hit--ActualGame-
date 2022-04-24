@@ -26,6 +26,20 @@ public class SlowMo : MonoBehaviour
 
 void Start()
 {
+    //Checks if this script should be enabled or not
+
+    if (UnlockLevel.On == true)
+    {
+        this.enabled = true;
+    }
+      else if (UnlockLevel.On == false)
+        {
+            this.enabled = false;
+        }
+
+
+
+
   startTimeScale = Time.timeScale;
      startFixedDeltaTime = Time.fixedDeltaTime;
     startMouseSens = PlayerPrefs.GetFloat("NewSens");
@@ -35,9 +49,10 @@ void Start()
      MouseLook.mouseSensitivity = PlayerPrefs.GetFloat("NewSens");
      minusAbilityTime = false;
      addAbilityTime = true;
+     SlowMoOverlay.enabled = false;
      
     FieldOfview = playerCam.GetComponent<Camera>().fieldOfView;
-
+     
 }
  void Update()
  {
@@ -107,7 +122,7 @@ void Start()
      MouseLook.mouseSensitivity = PlayerPrefs.GetFloat("NewSens");
      minusAbilityTime = false;
      addAbilityTime = true;
-     
+      SlowMoOverlay.enabled = false;
      isUsing = false;
      
     
@@ -120,10 +135,11 @@ void Start()
      //Starts the slowmo
      Time.timeScale = SlowDownFactor;
      Time.fixedDeltaTime = startFixedDeltaTime * SlowDownFactor;
-     movement.speed = 35f;
+     movement.speed = 45f;
      MouseLook.mouseSensitivity = startMouseSens * 2;
      minusAbilityTime = true;
      addAbilityTime = false;
+      SlowMoOverlay.enabled = true;
      isUsing = true;
      
      
